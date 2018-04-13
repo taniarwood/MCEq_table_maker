@@ -1,0 +1,15 @@
+#/bin/bash
+
+for num in $(seq -1 .1 1);do
+#	num = theta_use	
+	echo $num
+#	num=$(printf '%06d' $num)
+#	echo $num
+        theta=$num 
+#	PYTHONPATH=/home/trwood/MCEq_dev/MCEq:/home/trwood/MCEq_dev/MCEq/MCEq:$PYTHONPATH python /home/trwood/MCEq_dev/MCEq/thuner_scripts/submit/hack_all_seasons_all_angles_flux_tables.py $theta
+	echo '#!/bin/bash' >> $num.submit.sh
+	echo 'PYTHONPATH=/home/trwood/MCEq_rc1:/home/trwood/MCEq_rc1/MCEq:$PYTHONPATH python /home/trwood/MCEq_rc1/MCEq/submit_cobalt/H3a_DPMJETIII_PionsOff/review_h3a_DPMJET_mceq_rc1_chargedpionsOFF_current.py ' $theta >> $num.submit.sh
+done
+
+
+#~/MCEq_dev_mulossesin/MCEq/submit_cobalt/antinumufix_hack_all_seasons_all_angles_flux_tables_fine_mesh_nofixbitend.py
